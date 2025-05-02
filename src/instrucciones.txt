@@ -1,0 +1,19 @@
+PARA CORRER EN TERMINAL (CLI):
+    1) Ubicarse en la carpeta del proyecto (sago-app) usando cd
+    2) Una vez ubicados, usar el comando npm run dev
+    3) El CLI les va a dar la ruta del localhost, usar ctrl+click para abrir la pagina
+
+Alternativamente, pueden instalarse el IntelliJ Ultimate Edition usando la licencia educativa (mail institucional) y correr el programa desde la IDE
+
+
+ESTRUCTURA DEL PROYECTO
+
+assets --> En esta carpeta van todos los archivos externos o recursos que utilizamos en la aplicacion que no son codigo JavaScript. Usualmente son imagenes, fuentes, videos, audios, etc)
+
+components --> En esta carpeta van los COMPONENTES del proyecto. Un componente en ReactJS es una pieza que conforma la interfaz (en otras palabras, es un "objeto" que conforma la pagina). Los componentes pueden tener hasta dos archivos: el archivo .jsx (React) y el .css (stylesheet).
+
+firebase --> En esta carpeta van el archivo .js que configura la conexion con la base de datos y tambien aquellos scripts que obtienen o mandan informacion a la BDD
+
+helpers --> En esta carpeta van aquellos archivos .js que sirven de ayuda pero que no son directamente relevantes al proyecto. Por ejemplo, un script que contiene una funcion toLowerCase.
+
+
