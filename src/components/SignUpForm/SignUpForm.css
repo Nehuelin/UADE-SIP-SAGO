@@ -154,3 +154,17 @@
         font-size: 1.2rem;
     }
 }
+
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+    border: 1px solid #ef9a9a;
+}
+
+.men_in_black {
+    color: black;
+}

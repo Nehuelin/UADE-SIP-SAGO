@@ -1,14 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import "./SignUpForm.css";
+import {simulateAuth} from "../../helpers/authSimulator.js";
+import Loading from "../Loading/Loading.jsx";
 
 const SignUpForm = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         password: "",
+        confirmPassword: "",
         surname: "",
     });
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState('');
+
 
     const handleChange = (e) => {
         setFormData(prev => ({
@@ -17,16 +25,40 @@ const SignUpForm = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Datos del formulario:", formData);
+        setError('');
+
+        // Basic validation
+        if (formData.password !== formData.confirmPassword) {
+            setError('Las contraseñas no coinciden');
+            return;
+        }
+
+        setIsLoading(true);
+
+
+        try {
+            await simulateAuth();
+            // If successful, navigate to main menu
+            console.log("Datos del formulario:", formData);
+            navigate('/main-menu');
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setIsLoading(false);
+        }
     };
+
+    if (isLoading) {
+        return <Loading />;
+    }
 
     return (
         <div className="signup-container">
             <form onSubmit={handleSubmit} className="signup-form">
                 <h2 className="signup-title">Crear Cuenta</h2>
-
+                {error && <div className="error-message">{error}</div>}
                 <div className="signup-field">
                     <label htmlFor="name" className="signup-label">Nombre:</label>
                     <input
@@ -75,6 +107,18 @@ const SignUpForm = () => {
                         value={formData.password}
                         onChange={handleChange}
                         className="signup-input"
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="confirmPassword">Confirmar Contraseña:</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
                         required
                     />
                 </div>
