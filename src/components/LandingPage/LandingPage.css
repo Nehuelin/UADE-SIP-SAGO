@@ -1,0 +1,172 @@
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    overflow: hidden;
+    padding-top: 0;
+}
+
+
+.logo-container {
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 80%;
+    scale: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+
+.sago-logo {
+    width: 600px;
+    height: auto;
+    max-width: 90vw;
+    object-fit: contain;
+    scale: 90%
+}
+
+.buttons-container {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.landing-button {
+    padding: 1.5rem 4rem;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 250px;
+}
+
+.landing-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.landing-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.login-button:hover {
+    background-color: #45a049;
+}
+
+.register-button {
+    background-color: #2196F3;
+    color: white;
+}
+
+.register-button:hover {
+    background-color: #1976D2;
+}
+
+@media (max-width: 768px) {
+    .logo-container {
+        margin-bottom: 3rem;
+    }
+
+    .sago-logo {
+        width: 400px;
+    }
+
+    .buttons-container {
+        gap: 2rem;
+    }
+
+    .landing-button {
+        padding: 1.2rem 3rem;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .buttons-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .landing-button {
+        width: 90%;
+        max-width: 300px;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+
+    .sago-logo {
+        width: 300px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .welcome-message h1 {
+        font-size: 2.5rem;
+    }
+
+    .welcome-message p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-message h1 {
+        font-size: 2rem;
+    }
+
+    .welcome-message p {
+        font-size: 1rem;
+    }
+}
+
+
+/*------------------ ANIMACIONES ----------------------*/
+
+.welcome-message {
+    text-align: center;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease-in;
+}
+
+.welcome-message h1 {
+    font-size: 3.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.welcome-message p {
+    font-size: 1.5rem;
+    color: #7f8c8d;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
