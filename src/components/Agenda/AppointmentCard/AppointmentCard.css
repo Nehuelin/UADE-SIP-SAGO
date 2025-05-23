@@ -1,0 +1,97 @@
+.appointment-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 4px;
+    padding: 0.5rem;
+    height: 74%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 1rem;
+    width: 98.5%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.appointment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.appointment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px;
+}
+
+.appointment-time {
+    font-weight: bold;
+    min-width: 60px;
+    text-align: center;
+    color: #2196F3;
+}
+
+.appointment-status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: white;
+}
+
+.status-Pendiente {
+    background-color: #FFA500;
+}
+
+.status-Confirmado {
+    background-color: #4CAF50;
+}
+
+.status-Cancelado {
+    background-color: #F44336;
+}
+
+.patient-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.patient-name {
+    font-weight: 500;
+    color: #333;
+    flex: 1;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.action-button:hover {
+    opacity: 0.9;
+}
+
+.see-more-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #F44336;
+    color: white;
+}
