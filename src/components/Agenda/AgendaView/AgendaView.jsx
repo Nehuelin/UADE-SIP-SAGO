@@ -31,14 +31,12 @@ const AgendaView = ({ appointments = [], onSlotClick }) => {
         });
     };
 
-    // Get appointments for a specific time slot
     const getAppointmentsForTimeSlot = (timeSlot) => {
         return filterAppointments(appointments).filter(
             app => app.hour === timeSlot
         );
     };
 
-    // Handle click on an empty slot
     const handleSlotClick = (timeSlot) => {
         if (onSlotClick) {
             onSlotClick({
@@ -59,7 +57,6 @@ const AgendaView = ({ appointments = [], onSlotClick }) => {
             />
 
             <div className="agenda-grid">
-                {/* Time column */}
                 <div className="time-column">
                     {timeSlots.map(time => (
                         <div key={time} className="time-slot">
@@ -68,7 +65,6 @@ const AgendaView = ({ appointments = [], onSlotClick }) => {
                     ))}
                 </div>
 
-                {/* Appointments column */}
                 <div className="appointments-column">
                     {timeSlots.map(timeSlot => {
                         const slotAppointments = getAppointmentsForTimeSlot(timeSlot);
@@ -106,7 +102,6 @@ AgendaView.propTypes = {
             hour: PropTypes.string.isRequired,
             patient: PropTypes.shape({
                 name: PropTypes.string.isRequired,
-                // Add other patient properties as needed
             }).isRequired,
             professional: PropTypes.shape({
                 id: PropTypes.string.isRequired,

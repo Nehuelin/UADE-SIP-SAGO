@@ -47,11 +47,11 @@
     font-size: 1rem;
     min-width: 150px;
     position: relative;
-    background-color: #333;  /* darker background */
-    color: transparent;      /* hide the default date text */
+    background-color: #333;
+    color: transparent;
 }
 
-/* Hide the default date format */
+
 .date-input::-webkit-calendar-picker-indicator {
     background: transparent;
     bottom: 0;
@@ -66,14 +66,14 @@
     z-index: 2;
 }
 
-/* Show the formatted date using a pseudo-element */
+
 .date-input::before {
     content: attr(data-date);
     position: absolute;
     left: 0.5rem;
     top: 50%;
     transform: translateY(-50%);
-    color: white;    /* white text color */
+    color: white;
     z-index: 1;
     pointer-events: none;
 }
@@ -141,7 +141,6 @@
     box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
 }
 
-/* Responsive styles remain the same */
 @media (max-width: 768px) {
     .agenda-controls {
         flex-direction: column;

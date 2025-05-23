@@ -5,6 +5,7 @@ import './AgendaControls.css';
 const AgendaControls = ({ currentDate, setDate }) => {
     const [selectedProfessional, setSelectedProfessional] = useState('all');
 
+    // EJEMPLOS
     const professionals = [
         { id: 'all', name: 'Todos los Profesionales' },
         { id: 'dr1', name: 'Dr. Smith' },

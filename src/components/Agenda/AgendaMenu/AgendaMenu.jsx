@@ -6,7 +6,7 @@ import './AgendaMenu.css';
 const AgendaMenu = () => {
     const navigate = useNavigate();
 
-    // Sample appointments for testing - you can move this to a separate file later
+    // EJEMPLOS
     const sampleAppointments = [
         {
             id: "1",
@@ -85,9 +85,9 @@ const AgendaMenu = () => {
 
     const [appointments, setAppointments] = useState(sampleAppointments);
 
+    // Al apretar un slot vacio, se puede usar el AppointmentForm para crear un nuevo turno
     const handleSlotClick = (slotInfo) => {
         console.log('Clicked slot:', slotInfo);
-        // Here you'll handle opening the appointment form
     };
 
     const handleBackClick = () => {
