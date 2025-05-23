@@ -29,7 +29,6 @@ const SignUpForm = () => {
         e.preventDefault();
         setError('');
 
-        // Basic validation
         if (formData.password !== formData.confirmPassword) {
             setError('Las contraseñas no coinciden');
             return;
@@ -40,9 +39,8 @@ const SignUpForm = () => {
 
         try {
             await simulateAuth();
-            // If successful, navigate to main menu
             console.log("Datos del formulario:", formData);
-            navigate('/main-menu');
+            navigate('/menu-principal');
         } catch (error) {
             setError(error.message);
         } finally {

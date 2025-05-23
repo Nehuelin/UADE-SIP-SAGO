@@ -14,9 +14,9 @@ const MainMenu = () => {
             icon: '📅'
         },
         {
-            id: 'pediontogram',
-            title: 'Pediontograma',
-            path: '/pediontograma',
+            id: 'periodontogram',
+            title: 'Periodontograma',
+            path: '/periodontograma',
             icon: '🦷'
         },
         {

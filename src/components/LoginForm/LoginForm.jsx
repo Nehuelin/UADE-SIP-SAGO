@@ -22,7 +22,7 @@ const LoginForm = () => {
         try {
             await simulateAuth();
             // If successful, navigate to main menu
-            navigate('/main-menu');
+            navigate('/menu-principal');
         } catch (error) {
             setError(error.message);
         } finally {
@@ -70,7 +70,7 @@ const LoginForm = () => {
                 </div>
                 <button type="submit">Login</button>
                 <p>
-                    ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
+                    ¿No tienes una cuenta? <Link to="/registracion">Regístrate aquí</Link>
                 </p>
                 <Link to="/" className="back-link">Volver al Inicio</Link>
             </form>
