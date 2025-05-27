@@ -1,8 +1,8 @@
 
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import AgendaControls from '../AgendaControls/AgendaControls';
-import AppointmentCard from '../AppointmentCard/AppointmentCard';
+import AgendaControls from '../AgendaControls/AgendaControls.jsx';
+import AppointmentCard from '../AppointmentCard/AppointmentCard.jsx';
 import './AgendaView.css';
 
 const AgendaView = ({ appointments = [], onSlotClick }) => {

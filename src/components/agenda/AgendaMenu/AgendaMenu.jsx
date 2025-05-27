@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import AgendaView from '../AgendaView/AgendaView';
+import AgendaView from '../AgendaView/AgendaView.jsx';
 import './AgendaMenu.css';
 
 const AgendaMenu = () => {

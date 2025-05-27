@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import "./SignUpForm.css";
-import {simulateAuth} from "../../helpers/authSimulator.js";
-import Loading from "../Loading/Loading.jsx";
+import {simulateAuth} from "../../../helpers/authSimulator.js";
+import Loading from "../../common/Loading/Loading.jsx";
 
 const SignUpForm = () => {
     const navigate = useNavigate();

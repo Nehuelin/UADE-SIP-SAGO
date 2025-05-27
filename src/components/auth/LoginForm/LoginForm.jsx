@@ -1,8 +1,7 @@
-
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { simulateAuth } from '../../helpers/authSimulator';
-import Loading from '../Loading/Loading';
+import { simulateAuth } from '../../../helpers/authSimulator.js';
+import Loading from '../../common/Loading/Loading.jsx';
 import './LoginForm.css';
 
 const LoginForm = () => {
@@ -29,6 +28,7 @@ const LoginForm = () => {
             setIsLoading(false);
         }
     };
+
 
     const handleChange = (e) => {
         setFormData(prevState => ({

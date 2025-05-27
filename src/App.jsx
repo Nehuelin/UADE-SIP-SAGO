@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 
-import SignUpForm from "./components/SignUpForm/SignUpForm.jsx";
-import LandingPage from './components/LandingPage/LandingPage.jsx';
-import LoginForm from './components/LoginForm/LoginForm.jsx';
-import MainMenu from "./components/MainMenu/MainMenu.jsx";
-import TestPlayground from "./components/DEV_ONLY/TestPlayground.jsx";
-import AgendaMenu from "./components/Agenda/AgendaMenu/AgendaMenu.jsx";
+import SignUpForm from "./components/auth/SignUpForm/SignUpForm.jsx";
+import LandingPage from './components/landing/LandingPage/LandingPage.jsx';
+import LoginForm from './components/auth/LoginForm/LoginForm.jsx';
+import MainMenu from "./components/common/MainMenu/MainMenu.jsx";
+import TestPlayground from "./components/dev/TestPlayground.jsx";
+import AgendaMenu from "./components/agenda/AgendaMenu/AgendaMenu.jsx";
+import RecoverForm from "./components/auth/RecoverForm/RecoverForm.jsx";
 
 function App() {
     return (

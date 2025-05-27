@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
-import SAGO_logo from '../../assets/SAGO_logo.jpg';
+import SAGO_logo from '../../../assets/SAGO_logo.jpg';
 
 const LandingPage = () => {
 const navigate = useNavigate();
