@@ -8,6 +8,7 @@ import MainMenu from "./components/common/MainMenu/MainMenu.jsx";
 import TestPlayground from "./components/dev/TestPlayground.jsx";
 import AgendaMenu from "./components/agenda/AgendaMenu/AgendaMenu.jsx";
 import RecoverForm from "./components/auth/RecoverForm/RecoverForm.jsx";
+import PatientForm from "./components/patientRegister/PatientForm/PatientForm.jsx";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/login" element={<LoginForm />} />
                 <Route path="/menu-principal" element={<MainMenu/>} />
                 <Route path="/agenda" element={<AgendaMenu/>} />
+                <Route path="/buscar-pacientes" element={<PatientForm/>} />
             </Routes>
         </BrowserRouter>
     )
