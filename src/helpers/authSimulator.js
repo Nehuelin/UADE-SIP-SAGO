@@ -1,6 +1,6 @@
 export const simulateAuth = async () => {
     // Random delay between 3 and 5 seconds
-    const delay = Math.floor(Math.random() * (5000 - 3000 + 1) + 3000);
+    const delay = Math.floor(Math.random() * (5000 - 3000 + 1) + 1000);
 
     // Wait for the delay
     await new Promise(resolve => setTimeout(resolve, delay));
