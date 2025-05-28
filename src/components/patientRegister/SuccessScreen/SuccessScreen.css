@@ -1,0 +1,77 @@
+.success-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.success-content {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    max-width: 500px;
+    width: 90%;
+}
+
+.success-content h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.success-content p {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.success-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.success-buttons button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-another-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.add-another-btn:hover {
+    background-color: #1976D2;
+}
+
+.return-menu-btn {
+    background-color: #78909C;
+    color: white;
+}
+
+.return-menu-btn:hover {
+    background-color: #546E7A;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

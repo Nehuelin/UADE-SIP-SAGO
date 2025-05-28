@@ -1,0 +1,249 @@
+.patient-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 3rem 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-x: auto;
+    overflow-y: visible;
+    color: #2c3e50;
+}
+
+form {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 3rem;
+    animation: slideUp 0.6s ease-out;
+}
+
+.form-fields-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 3rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1.2rem;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+/* Observations field and submit button take full width */
+.form-group:last-of-type,
+.submit-button {
+    grid-column: 1 / -1;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+    .form-fields-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .form-fields-container {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+}
+.form-group textarea {
+    min-height: 120px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1.5rem 4rem;
+    margin-top: 3rem;
+    grid-column: 1 / -1;
+}
+
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #1976D2;
+}
+
+.submit-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .form-fields-container {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        margin: 0 1rem;
+        padding: 1.5rem;
+    }
+
+    .patient-form-container h2 {
+        font-size: 2rem;
+    }
+
+    .submit-button {
+        padding: 1.2rem;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .patient-form-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .submit-button {
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+}
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #1976D2;
+}
+
+.submit-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    form {
+        margin: 0 1rem;
+        padding: 1.5rem;
+    }
+
+    .patient-form-container h2 {
+        font-size: 2rem;
+    }
+
+    .submit-button {
+        padding: 1.2rem;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .patient-form-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .submit-button {
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+
+    form {
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+}
+
+/* Additional error state styles */
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+    border: 1px solid #ef9a9a;
+}
+
+/* Required field indicator */
+.form-group label::after {
+    content: "*";
+    color: #c62828;
+    margin-left: 4px;
+}
+
+.form-group label[for="observations"]::after {
+    content: "";
+}
+
+.form-group input:disabled,
+.form-group textarea:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.submit-button:disabled {
+    background-color: #90caf9;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media screen and (max-width: 480px) {
+    input[type="text"],
+    input[type="tel"],
+    textarea {
+        font-size: 16px;
+    }
+}
