@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { simulateAuth } from '../../../helpers/authSimulator.js';
-import Loading from '../../common/Loading/Loading.jsx';
+import { simulateAuth } from '../../../../helpers/authSimulator.js';
+import Loading from '../../../common/Loading/Loading.jsx';
 import SuccessScreen from "../SuccessScreen/SuccessScreen.jsx";
 import './PatientForm.css';
 
