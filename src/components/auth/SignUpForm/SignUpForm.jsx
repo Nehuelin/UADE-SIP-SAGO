@@ -109,14 +109,15 @@ const SignUpForm = () => {
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="confirmPassword">Confirmar Contraseña:</label>
+                <div className="signup-field">
+                    <label htmlFor="confirmPassword" className="signup-label">Confirmar Contraseña:</label>
                     <input
                         type="password"
                         id="confirmPassword"
                         name="confirmPassword"
                         value={formData.confirmPassword}
                         onChange={handleChange}
+                        className="signup-input"
                         required
                     />
                 </div>
