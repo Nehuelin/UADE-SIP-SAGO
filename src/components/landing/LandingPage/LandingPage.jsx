@@ -10,7 +10,7 @@ const navigate = useNavigate();
     };
 
     const handleRegister = () => {
-        navigate('/register');
+        navigate('/registracion');
     };
 
     return (
