@@ -1,0 +1,202 @@
+
+.billing-list-container {
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.billing-list-container h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.billing-list-table {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr 1fr;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    font-weight: bold;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.header-cell {
+    padding: 0.5rem;
+    color: #2c3e50;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr 1fr;
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.table-row:hover {
+    background-color: #f8f9fa;
+}
+
+.table-cell {
+    padding: 0.5rem;
+}
+
+.patient-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.patient-name {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.bill-details {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    color: #6c757d;
+    gap: 0.25rem;
+}
+
+.amount-cell {
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.payment-method-cell {
+    padding-right: 1rem;
+    font-weight: 400;
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+.status-paid {
+    color: #28a745;
+    font-weight: 500;
+    text-align: center;
+}
+
+.status-cancelled {
+    color: #dc3545;
+    font-weight: 500;
+    text-align: center;
+}
+
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 800px;
+    font-size: 1.1rem;
+}
+
+.error-message {
+    color: #dc3545;
+    text-align: center;
+    padding: 1rem;
+    background-color: #f8d7da;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    text-align: center;
+    display: inline-block;
+    min-width: 100px;
+}
+
+.status-paid {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-cancelled {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.status-change-cell {
+    text-align: center;
+}
+
+.status-select {
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: white;
+    width: 90%;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.status-select:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.status-select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+@media (max-width: 768px) {
+    .billing-list-container {
+        padding: 1rem;
+    }
+
+    .table-header,
+    .table-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .header-cell:not(:first-child) {
+        display: none;
+    }
+
+    .table-cell {
+        padding: 0.25rem;
+    }
+
+    .payment-method-cell,
+    .action-cell {
+        padding-top: 0.5rem;
+    }
+}
