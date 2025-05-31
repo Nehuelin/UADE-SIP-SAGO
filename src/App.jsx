@@ -11,6 +11,9 @@ import PatientFindForm from "./components/patient/patientFinder/PatientFindForm/
 import PatientList from "./components/patient/patientFinder/PatientList/PatientList.jsx";
 import PatientRecord from "./components/patient/PatientRecord/PatientRecord.jsx";
 import ClinicalHistory from "./components/patient/ClinicalHistory/ClinicalHistory.jsx";
+import NotFound from "./components/common/NotFound/NotFound.jsx";
+import BillingPatientForm from "./components/billing/BillingPatientForm/BillingPatientForm.jsx";
+import BillingList from "./components/billing/BillingList/BillingList.jsx";
 
 function App() {
     return (
@@ -20,10 +23,13 @@ function App() {
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/registracion" element={<SignUpForm />} />
                 <Route path="/login" element={<LoginForm />} />
+                <Route path="*" element={<NotFound />} />
 
                 {/* Rutas protegidas, agregar autenticacion */}
                 <Route path="/menu-principal" element={<MainMenu />} />
                 <Route path="/agenda" element={<AgendaMenu />} />
+                <Route path="/facturacion" element={<BillingPatientForm />} />
+                <Route path="/facturacion/lista" element={<BillingList />} />
 
                 {/* Rutas de pacientes */}
                 <Route path="/buscar-pacientes" element={<PatientFindForm />} />
