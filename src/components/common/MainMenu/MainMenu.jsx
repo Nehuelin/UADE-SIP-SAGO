@@ -38,7 +38,7 @@ const MainMenu = () => {
         {
             id: 'cashier',
             title: 'Caja',
-            path: '/caja',
+            path: '/facturacion',
             icon: '💰'
         }
     ];
