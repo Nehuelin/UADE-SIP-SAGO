@@ -5,7 +5,7 @@ const appointments = [
         id: "1",
         date: new Date().toISOString().split('T')[0],
         hour: "09:00",
-        patient: { name: "Juan Pérez" },
+        patient: { name: "Juan", surname: "Perez" },
         professional: { id: "dr1", name: "Dr. Smith" },
         state: "Confirmado"
     },
@@ -13,7 +13,7 @@ const appointments = [
         id: "2",
         date: new Date().toISOString().split('T')[0],
         hour: "09:30",
-        patient: { name: "María García" },
+        patient: { name: "María", surname: "Garcia" },
         professional: { id: "dr2", name: "Dr. Johnson" },
         state: "Pendiente"
     },
@@ -21,7 +21,7 @@ const appointments = [
         id: "3",
         date: new Date().toISOString().split('T')[0],
         hour: "14:00",
-        patient: { name: "Carlos Ramírez" },
+        patient: { name: "Carlos", surname: "Ramirez" },
         professional: { id: "dr3", name: "Dra. López" },
         state: "Cancelado"
     },
@@ -29,7 +29,7 @@ const appointments = [
         id: "4",
         date: "2025-05-24",
         hour: "08:30",
-        patient: { name: "Lucía Fernández" },
+        patient: { name: "Lucía", surname: "Fernandez" },
         professional: { id: "dr1", name: "Dr. Smith" },
         state: "Pendiente"
     },
@@ -37,7 +37,7 @@ const appointments = [
         id: "5",
         date: "2025-05-25",
         hour: "11:00",
-        patient: { name: "Diego Torres" },
+        patient: { name: "Diego", surname: "Torres" },
         professional: { id: "dr2", name: "Dr. Johnson" },
         state: "Confirmado"
     },
@@ -45,7 +45,7 @@ const appointments = [
         id: "6",
         date: "2025-05-26",
         hour: "15:30",
-        patient: { name: "Ana Beltrán" },
+        patient: { name: "Ana", surname: "Beltrán" },
         professional: { id: "dr3", name: "Dra. López" },
         state: "Pendiente"
     },
@@ -53,7 +53,7 @@ const appointments = [
         id: "7",
         date: "2025-05-26",
         hour: "18:45",
-        patient: { name: "Pedro Gutiérrez" },
+        patient: { name: "Pedro", surname: "Gutiérrez" },
         professional: { id: "dr1", name: "Dr. Smith" },
         state: "Cancelado"
     },
@@ -61,7 +61,7 @@ const appointments = [
         id: "8",
         date: "2025-05-27",
         hour: "10:15",
-        patient: { name: "Sofía Márquez" },
+        patient: { name: "Sofía", surname: "Marquez" },
         professional: { id: "dr2", name: "Dr. Johnson" },
         state: "Confirmado"
     },
@@ -69,7 +69,7 @@ const appointments = [
         id: "9",
         date: "2025-05-27",
         hour: "19:00",
-        patient: { name: "Javier Medina" },
+        patient: { name: "Javier", surname: "Medina" },
         professional: { id: "dr3", name: "Dra. López" },
         state: "Pendiente"
     }
@@ -81,7 +81,7 @@ const appointments = [
 const patients = [
     {
         id: "1",
-        name: "María García",
+        name: "María",
         surname: "García",
         dni: "30123456",
         patientNumber: "P001",
@@ -109,7 +109,7 @@ const patients = [
     },
     {
         id: "2",
-        name: "Carlos Rodríguez",
+        name: "Carlos",
         surname: "Rodríguez",
         dni: "25789012",
         patientNumber: "P002",
@@ -137,7 +137,7 @@ const patients = [
     },
     {
         id: "3",
-        name: "Ana Martínez",
+        name: "Ana",
         surname: "Martínez",
         dni: "35456789",
         patientNumber: "P003",
@@ -222,6 +222,94 @@ const clinicalHistories = {
         }
     ]
 };
+
+// FACTURACION
+const billingData = [
+    {
+        id: "BILL001",
+        billNumber: "F0001",
+        billDate: "2024-03-14",
+        billStatus: "Cobrado",
+        paymentMethod: "Transferencia Bancaria",
+        amount: 12000,
+        patientInfo: {
+            name: "María",
+            surname: "García",
+            id: "1",
+            patientNumber: "P001",
+            phoneNumber: "11-4567-8901",
+            healthInsurance: "Swiss Medical",
+            healthInsuranceNumber: "SMG123456"
+        },
+        items: [
+            { description: "Consulta médica", amount: 12000 }
+        ]
+    },
+    {
+        id: "BILL002",
+        billNumber: "F0002",
+        billDate: "2024-03-13",
+        billStatus: "Cancelado",
+        paymentMethod: "Efectivo",
+        amount: 25000,
+        patientInfo: {
+            name: "Carlos",
+            surname: "Rodríguez",
+            id: "2",
+            patientNumber: "P002",
+            phoneNumber: "11-2345-6789",
+            healthInsurance: "OSDE",
+            healthInsuranceNumber: "OSD789012"
+        },
+        items: [
+            { description: "Consulta médica", amount: 8000 },
+            { description: "Ecografía", amount: 17000 }
+        ]
+    },
+    {
+        id: "BILL003",
+        billNumber: "F0003",
+        billDate: "2024-03-16",
+        billStatus: "Pendiente",
+        paymentMethod: "Tarjeta de Credito",
+        amount: 30000,
+        patientInfo: {
+            name: "Ana",
+            surname: "Martínez",
+            id: "3",
+            patientNumber: "P003",
+            phoneNumber: "11-8901-2345",
+            healthInsurance: "Galeno",
+            healthInsuranceNumber: "GAL345678"
+        },
+        items: [
+            { description: "Consulta especialista", amount: 15000 },
+            { description: "Análisis de laboratorio", amount: 15000 }
+        ]
+    },
+    {
+        id: "BILL005",
+        billNumber: "F0005",
+        billDate: "2024-03-16",
+        billStatus: "Cobrado",
+        paymentMethod: "Tarjeta de Debito",
+        amount: 20000,
+        patientInfo: {
+            name: "Pedro",
+            surname: "López",
+            id: "5",
+            patientNumber: "P005",
+            phoneNumber: "2233445566",
+            healthInsurance: "Swiss Medical",
+            healthInsuranceNumber: "SM11223"
+        },
+        items: [
+            { description: "Consulta médica", amount: 8000 },
+            { description: "Procedimiento", amount: 12000 }
+        ]
+    }
+];
+
 
 const simulateDB = async () => {
     const delay = Math.floor(Math.random() * (2000 - 1000 + 1) + 1000);
@@ -327,4 +415,40 @@ export const getAppointmentsByProfessional = async (professionalId) => {
     return appointments.filter(
         appointment => appointment.professional.id === professionalId
     );
+};
+
+export const searchBillingRecords = async (searchParams) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let filteredBills = [...billingData];
+
+            // Filter based on search parameters
+            if (searchParams) {
+                filteredBills = filteredBills.filter(bill => {
+                    const matchesName = !searchParams.name ||
+                        bill.patientInfo.name.toLowerCase().includes(searchParams.name.toLowerCase());
+                    const matchesSurname = !searchParams.surname ||
+                        bill.patientInfo.surname.toLowerCase().includes(searchParams.surname.toLowerCase());
+                    const matchesId = !searchParams.id ||
+                        bill.patientInfo.id.includes(searchParams.id);
+                    const matchesPatientNumber = !searchParams.patientNumber ||
+                        bill.patientInfo.patientNumber.includes(searchParams.patientNumber);
+                    const matchesBillNumber = !searchParams.billNumber ||
+                        bill.billNumber.includes(searchParams.billNumber);
+                    const matchesBillDate = !searchParams.billDate ||
+                        bill.billDate === searchParams.billDate;
+                    const matchesBillStatus = !searchParams.billStatus ||
+                        bill.billStatus === searchParams.billStatus;
+                    const matchesPaymentMethod = !searchParams.paymentMethod ||
+                        bill.paymentMethod === searchParams.paymentMethod;
+
+                    return matchesName && matchesSurname && matchesId &&
+                        matchesPatientNumber && matchesBillNumber &&
+                        matchesBillDate && matchesBillStatus && matchesPaymentMethod;
+                });
+            }
+
+            resolve(filteredBills);
+        }, 50);
+    });
 };
