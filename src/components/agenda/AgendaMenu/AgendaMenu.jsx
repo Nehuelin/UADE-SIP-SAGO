@@ -1,98 +1,70 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AgendaView from '../AgendaView/AgendaView.jsx';
 import './AgendaMenu.css';
+import {
+    getAppointments,
+    addAppointment,
+    updateAppointment,
+    deleteAppointment
+} from '../../../helpers/dbSimulator.js';  // Asegúrate de colocar la ruta correcta
 
 const AgendaMenu = () => {
     const navigate = useNavigate();
+    const [appointments, setAppointments] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    // EJEMPLOS
-    const sampleAppointments = [
-        {
-            id: "1",
-            date: new Date().toISOString().split('T')[0],
-            hour: "09:00",
-            patient: { name: "Juan Pérez" },
-            professional: { id: "dr1", name: "Dr. Smith" },
-            state: "Confirmado"
-        },
-        {
-            id: "2",
-            date: new Date().toISOString().split('T')[0],
-            hour: "09:30",
-            patient: { name: "María García" },
-            professional: { id: "dr2", name: "Dr. Johnson" },
-            state: "Pendiente"
-        },
-        {
-            id: "3",
-            date: new Date().toISOString().split('T')[0],
-            hour: "14:00",
-            patient: { name: "Carlos Ramírez" },
-            professional: { id: "dr3", name: "Dra. López" },
-            state: "Cancelado"
-        },
-        {
-            id: "4",
-            date: "2025-05-24",
-            hour: "08:30",
-            patient: { name: "Lucía Fernández" },
-            professional: { id: "dr1", name: "Dr. Smith" },
-            state: "Pendiente"
-        },
-        {
-            id: "5",
-            date: "2025-05-25",
-            hour: "11:00",
-            patient: { name: "Diego Torres" },
-            professional: { id: "dr2", name: "Dr. Johnson" },
-            state: "Confirmado"
-        },
-        {
-            id: "6",
-            date: "2025-05-26",
-            hour: "15:30",
-            patient: { name: "Ana Beltrán" },
-            professional: { id: "dr3", name: "Dra. López" },
-            state: "Pendiente"
-        },
-        {
-            id: "7",
-            date: "2025-05-26",
-            hour: "18:45",
-            patient: { name: "Pedro Gutiérrez" },
-            professional: { id: "dr1", name: "Dr. Smith" },
-            state: "Cancelado"
-        },
-        {
-            id: "8",
-            date: "2025-05-27",
-            hour: "10:15",
-            patient: { name: "Sofía Márquez" },
-            professional: { id: "dr2", name: "Dr. Johnson" },
-            state: "Confirmado"
-        },
-        {
-            id: "9",
-            date: "2025-05-27",
-            hour: "19:00",
-            patient: { name: "Javier Medina" },
-            professional: { id: "dr3", name: "Dra. López" },
-            state: "Pendiente"
+    // Cargar las citas al montar el componente
+    useEffect(() => {
+        const fetchAppointments = async () => {
+            try {
+                setLoading(true);
+                const data = await getAppointments();
+                setAppointments(data);
+            } catch (err) {
+                setError('Error al cargar turnos.');
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchAppointments();
+    }, []);
+
+    const handleSlotClick = async (slotInfo) => {
+        // AGREGAR ALGO ACA
+    };
+
+    const handleUpdateAppointment = async (id, updatedData) => {
+        try {
+            const updated = await updateAppointment(id, updatedData);
+            if (updated) {
+                setAppointments(prev => prev.map(a => a.id === id ? updated : a));
+            }
+        } catch (err) {
+            console.error("Error al actualizar turno:", err);
         }
-    ];
+    };
 
-
-    const [appointments, setAppointments] = useState(sampleAppointments);
-
-    // Al apretar un slot vacio, se puede usar el AppointmentForm para crear un nuevo turno
-    const handleSlotClick = (slotInfo) => {
-        console.log('Clicked slot:', slotInfo);
+    const handleDeleteAppointment = async (id) => {
+        try {
+            const success = await deleteAppointment(id);
+            if (success) {
+                setAppointments(prev => prev.filter(a => a.id !== id));
+            }
+        } catch (err) {
+            console.error("Error al eliminar turno:", err);
+        }
     };
 
     const handleBackClick = () => {
         navigate('/menu-principal');
     };
+
+    if (loading) return <p>Cargando agenda...</p>;
+    if (error) return <p>{error}</p>;
 
     return (
         <div className="agenda-menu">
@@ -105,11 +77,11 @@ const AgendaMenu = () => {
             <AgendaView
                 appointments={appointments}
                 onSlotClick={handleSlotClick}
+                onUpdate={handleUpdateAppointment}  // Puedes conectar a botones de editar
+                onDelete={handleDeleteAppointment}  // Puedes conectar a botones de eliminar
             />
         </div>
     );
-}
+};
 
 export default AgendaMenu;
-
-
