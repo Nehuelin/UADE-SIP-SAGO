@@ -27,6 +27,31 @@ const PatientRecord = () => {
         }
     }, [id]);
 
+    const handleBillingNavigation = async (patientId) => {
+        try {
+            const searchParams = {
+                id: patientId,
+                billStatus: 'pending'
+            };
+
+            const pendingBills = await searchBillingRecords(searchParams);
+
+            if (pendingBills.length > 0) {
+                const params = new URLSearchParams({
+                    id: patientId,
+                    name: patient.name,
+                    surname: patient.surname
+                });
+                navigate(`/facturacion/lista?${params.toString()}`);
+            } else {
+                navigate(`/facturacion/nuevo/${patientId}`);
+            }
+        } catch (error) {
+            console.error('Error checking pending bills:', error);
+            navigate(`/facturacion/lista?id=${patientId}`);
+        }
+    };
+
     const handleNavigation = (path) => {
         navigate(path);
     };
@@ -54,7 +79,7 @@ const PatientRecord = () => {
                 <div className="data-sections">
                     <section className="section">
                         <h3>Datos Personales</h3>
-                        <p><strong>Nombre Completo:</strong> {patient.name}</p>
+                        <p><strong>Nombre Completo:</strong> {patient.name + ' ' + patient.surname}</p>
                         <p><strong>DNI / CUIL / Pasaporte:</strong> {patient.id}</p>
                         <p><strong>Fecha de Nacimiento:</strong> {patient.birthDate}</p>
                         <p><strong>Edad:</strong> {patient.age}</p>
@@ -87,7 +112,7 @@ const PatientRecord = () => {
 
             <div className="actions">
                 <button onClick={() => handleNavigation(`/historial-clinico/${patient.id}`)}>Ver Historial Clínico</button>
-                <button onClick={() => handleNavigation(`/caja/${patient.id}`)}>Caja</button>
+                <button onClick={() => handleBillingNavigation(patient.id)}>Caja</button>
                 <button onClick={() => handleNavigation(`/tratamiento/${patient.id}`)}>Agregar Tratamiento</button>
                 <button onClick={() => handleNavigation(`/animo/${patient.id}`)}>Ver Ánimo</button>
                 <button onClick={() => navigate('/menu-principal')}>Volver al Menú</button>
