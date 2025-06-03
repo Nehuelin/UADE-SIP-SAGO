@@ -6,12 +6,6 @@ const MainMenu = () => {
 
     const menuOptions = [
         {
-            id: 'shifts',
-            title: 'Turnos',
-            path: '/turnos',
-            icon: '📅'
-        },
-        {
             id: 'periodontogram',
             title: 'Periodontograma',
             path: '/periodontograma',
