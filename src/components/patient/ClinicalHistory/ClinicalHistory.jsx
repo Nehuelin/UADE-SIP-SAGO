@@ -108,7 +108,7 @@ const ClinicalHistory = () => {
                 </div>
             </div>
 
-            <div className="actions">
+            <div className="clinic-actions">
                 <button onClick={() => navigate(`/agregar-registro/${id}`)}>
                     Nuevo Registro Clínico
                 </button>

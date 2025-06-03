@@ -7,7 +7,7 @@ import {
     addAppointment,
     updateAppointment,
     deleteAppointment
-} from '../../../helpers/dbSimulator.js';  // Asegúrate de colocar la ruta correcta
+} from '../../../helpers/dbSimulator.js';
 
 const AgendaMenu = () => {
     const navigate = useNavigate();
@@ -77,8 +77,8 @@ const AgendaMenu = () => {
             <AgendaView
                 appointments={appointments}
                 onSlotClick={handleSlotClick}
-                onUpdate={handleUpdateAppointment}  // Puedes conectar a botones de editar
-                onDelete={handleDeleteAppointment}  // Puedes conectar a botones de eliminar
+                onUpdate={handleUpdateAppointment}
+                onDelete={handleDeleteAppointment}
             />
         </div>
     );

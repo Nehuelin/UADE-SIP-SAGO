@@ -110,7 +110,7 @@ const PatientRecord = () => {
                 </div>
             </div>
 
-            <div className="actions">
+            <div className="record_actions">
                 <button onClick={() => handleNavigation(`/historial-clinico/${patient.id}`)}>Ver Historial Clínico</button>
                 <button onClick={() => handleBillingNavigation(patient.id)}>Caja</button>
                 <button onClick={() => handleNavigation(`/tratamiento/${patient.id}`)}>Agregar Tratamiento</button>

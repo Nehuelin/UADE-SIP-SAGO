@@ -99,7 +99,7 @@
     margin-right: 0.5rem;
 }
 
-.actions {
+.record-actions {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -108,7 +108,7 @@
     flex-wrap: wrap;
 }
 
-.actions button {
+.record-actions button {
     padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 8px;
@@ -119,7 +119,7 @@
     font-size: 1rem;
 }
 
-.actions button:hover {
+.record-actions button:hover {
     background-color: #1976D2;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -172,11 +172,11 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .actions {
+    .record-actions {
         flex-direction: column;
     }
 
-    .actions button {
+    .record-actions button {
         width: 100%;
     }
 }

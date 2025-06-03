@@ -1,9 +1,12 @@
+
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './AgendaControls.css';
+import AppointmentModal from '../AppointmentModal/AppointmentModal';
 
 const AgendaControls = ({ currentDate, setDate }) => {
     const [selectedProfessional, setSelectedProfessional] = useState('all');
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // EJEMPLOS
     const professionals = [
@@ -37,11 +40,19 @@ const AgendaControls = ({ currentDate, setDate }) => {
         setSelectedProfessional(e.target.value);
     };
 
+    const handleNewAppointment = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleAppointmentSubmit = (appointmentData) => {
+        console.log('New appointment:', appointmentData);
+    };
+
     const formatDateForInput = (date) => {
         const day = String(date.getDate()).padStart(2, '0');
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const year = date.getFullYear();
-        return `${year}-${month}-${day}`; // HTML date input requires yyyy-mm-dd format
+        return `${year}-${month}-${day}`;
     };
 
     const formatDateDisplay = (date) => {
@@ -52,55 +63,73 @@ const AgendaControls = ({ currentDate, setDate }) => {
     };
 
     return (
-        <div className="agenda-controls">
-            <div className="date-navigation">
-                <button
-                    className="control-btn"
-                    onClick={handlePreviousDay}
-                    aria-label="Previous Day"
-                >
-                    ←
-                </button>
-
-                <div className="date-selector">
-                    <input
-                        type="date"
-                        value={formatDateForInput(currentDate)}
-                        onChange={handleDateChange}
-                        className="date-input"
-                        data-date={formatDateDisplay(currentDate)}
-                    />
+        <>
+            <div className="agenda-controls">
+                <div className="date-navigation">
                     <button
-                        className="today-btn"
-                        onClick={handleCurrentDay}
+                        className="control-btn"
+                        onClick={handlePreviousDay}
+                        aria-label="Previous Day"
                     >
-                        Hoy
+                        ←
+                    </button>
+
+                    <div className="date-selector">
+                        <input
+                            type="date"
+                            value={formatDateForInput(currentDate)}
+                            onChange={handleDateChange}
+                            className="date-input"
+                            data-date={formatDateDisplay(currentDate)}
+                        />
+                        <button
+                            className="today-btn"
+                            onClick={handleCurrentDay}
+                        >
+                            Hoy
+                        </button>
+                    </div>
+
+                    <button
+                        className="control-btn"
+                        onClick={handleNextDay}
+                        aria-label="Next Day"
+                    >
+                        →
                     </button>
                 </div>
 
-                <button
-                    className="control-btn"
-                    onClick={handleNextDay}
-                    aria-label="Next Day"
-                >
-                    →
-                </button>
+                <div className="controls-right">
+                    <div className="professional-filter">
+                        <select
+                            value={selectedProfessional}
+                            onChange={handleProfessionalChange}
+                            className="professional-select"
+                        >
+                            {professionals.map(prof => (
+                                <option key={prof.id} value={prof.id}>
+                                    {prof.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <button
+                        className="new-appointment-btn"
+                        onClick={handleNewAppointment}
+                    >
+                        Nuevo Turno
+                    </button>
+                </div>
             </div>
 
-            <div className="professional-filter">
-                <select
-                    value={selectedProfessional}
-                    onChange={handleProfessionalChange}
-                    className="professional-select"
-                >
-                    {professionals.map(prof => (
-                        <option key={prof.id} value={prof.id}>
-                            {prof.name}
-                        </option>
-                    ))}
-                </select>
-            </div>
-        </div>
+            <AppointmentModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onSubmit={handleAppointmentSubmit}
+                professionals={professionals.filter(prof => prof.id !== 'all')}
+            />
+        </>
     );
 };
 
