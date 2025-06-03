@@ -17,7 +17,8 @@ const navigate = useNavigate();
         <div className="landing-container">
             <div className="welcome-message">
                 <h1>Bienvenido a SAGO</h1>
-                <p>Dato curioso, odio esta materia</p>
+                <p>"Dondequiera que se ama el arte de la medicina, se ama también a la humanidad."
+                    — Hipócrates, padre de la medicina</p>
             </div>
             <div className="logo-container">
                 <img src={SAGO_logo} alt="SAGO Logo" className="sago-logo" />
