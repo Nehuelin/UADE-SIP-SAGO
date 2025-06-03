@@ -1,0 +1,107 @@
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1000;
+    padding-top: 80px;
+}
+
+.modal-content {
+    background: #000000;
+    padding: 1.25rem;
+    border-radius: 8px;
+    width: 1500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-form-group {
+    margin-bottom: 0.5rem;
+}
+
+.modal-form-group label {
+    display: block;
+    margin-bottom: 0.15rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.modal-form-group input,
+.modal-form-group select,
+.modal-form-group textarea {
+    width: 100%;
+    /*padding: 0.25rem 0.5rem;*/
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    height: 1.75rem;
+}
+
+.modal-form-group textarea {
+    height: 3rem;
+    resize: none;
+}
+
+.modal-form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-form-row .modal-form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.modal-form-row .modal-form-group input[type="date"],
+.modal-form-row .modal-form-group input[type="time"] {
+    width: 90%;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    justify-content: flex-end;
+}
+
+.submit-btn,
+.cancel-btn {
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    min-width: 90px;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #d32f2f;
+}
+
+.DONT-USE-OTHER-FORM-STYLE-PLZ-THANKYOU{
+    transform: translateX(-20px) scale(0.95);
+    margin: 0 !important;
+    padding: 18px !important;
+}
