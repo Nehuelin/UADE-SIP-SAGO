@@ -1,0 +1,70 @@
+.playground-container {
+    padding: 2rem;
+    margin: 0 auto;
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+.test-section {
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.test-section h2 {
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.test-section h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.playground-button {
+    padding: 0.5rem 1rem;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.playground-button:hover {
+    background-color: #1976D2;
+}
+
+.controls-container {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.component-display {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .playground-container {
+        padding: 1rem;
+    }
+
+    .test-section {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+}
