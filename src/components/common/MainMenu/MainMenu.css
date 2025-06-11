@@ -1,4 +1,3 @@
-
 .main-menu-container {
     display: flex;
     flex-direction: column;
@@ -96,7 +95,6 @@
     transform: scale(1.05);
 }
 
-/* Animation keyframes */
 @keyframes fadeInUp {
     to {
         opacity: 1;

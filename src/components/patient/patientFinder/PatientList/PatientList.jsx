@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Loading from '../../../common/Loading/Loading';
@@ -76,7 +75,7 @@ const PatientList = () => {
                                     className="history-button"
                                     onClick={() => handleViewHistory(patient.id)}
                                 >
-                                    Ver Historia Clínica
+                                    Ver Ficha Medica
                                 </button>
                             </div>
                         </div>

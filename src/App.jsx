@@ -19,19 +19,14 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                {/* Rutas publicas */}
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/registracion" element={<SignUpForm />} />
                 <Route path="/login" element={<LoginForm />} />
                 <Route path="*" element={<NotFound />} />
-
-                {/* Rutas protegidas, agregar autenticacion */}
                 <Route path="/menu-principal" element={<MainMenu />} />
                 <Route path="/agenda" element={<AgendaMenu />} />
                 <Route path="/facturacion" element={<BillingPatientForm />} />
                 <Route path="/facturacion/lista" element={<BillingList />} />
-
-                {/* Rutas de pacientes */}
                 <Route path="/buscar-pacientes" element={<PatientFindForm />} />
                 <Route path="/buscar-pacientes/lista" element={<PatientList />} />
                 <Route path="/ficha-paciente/:id" element={<PatientRecord />} />

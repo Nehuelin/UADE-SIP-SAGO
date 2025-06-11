@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { searchBillingRecords } from '../../../helpers/dbSimulator';
-import {capitalize} from '../../../helpers/stringFunctions.js';
+import { capitalize } from '../../../helpers/stringFunctions.js';
 import './BillingList.css';
 import Loading from "../../common/Loading/Loading.jsx";
 

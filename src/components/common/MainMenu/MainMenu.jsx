@@ -4,12 +4,22 @@ import './MainMenu.css';
 const MainMenu = () => {
     const navigate = useNavigate();
 
+    const handleNavigation = (path, isExternal = false) => {
+        if (isExternal) {
+            const basePath = import.meta.env.DEV ? '' : '';
+            window.location.href = `${basePath}${path}`;
+        } else {
+            navigate(path);
+        }
+    };
+
     const menuOptions = [
         {
             id: 'periodontogram',
             title: 'Periodontograma',
-            path: '/periodontograma',
-            icon: '🦷'
+            path: '/periodontal-chart/index.html',
+            icon: '🦷',
+            isExternal: true
         },
         {
             id: 'patient-search',
@@ -37,10 +47,6 @@ const MainMenu = () => {
         }
     ];
 
-    const handleNavigation = (path) => {
-        navigate(path);
-    };
-
     return (
         <div className="main-menu-container">
             <h1 className="main-menu-title">Menu Principal</h1>
@@ -49,7 +55,7 @@ const MainMenu = () => {
                     <button
                         key={option.id}
                         className="menu-button"
-                        onClick={() => handleNavigation(option.path)}
+                        onClick={() => handleNavigation(option.path, option.isExternal)}
                     >
                         <span className="menu-icon">{option.icon}</span>
                         <span className="menu-text">{option.title}</span>

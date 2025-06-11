@@ -452,3 +452,7 @@ export const searchBillingRecords = async (searchParams) => {
         }, 50);
     });
 };
+
+export const fetchPeriodontalData = async () => {
+
+};

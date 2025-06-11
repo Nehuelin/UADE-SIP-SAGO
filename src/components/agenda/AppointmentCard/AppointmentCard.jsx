@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'; // para ver mas facil los errores con props
+import PropTypes from 'prop-types';
 import './AppointmentCard.css';
 
 const AppointmentCard = ({ appointment }) => {

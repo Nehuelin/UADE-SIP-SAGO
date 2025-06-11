@@ -53,7 +53,6 @@ form {
     transition: all 0.3s ease;
 }
 
-/* Observations field and submit button take full width */
 .form-group:last-of-type,
 .submit-button {
     grid-column: 1 / -1;
@@ -205,7 +204,6 @@ form {
     }
 }
 
-/* Additional error state styles */
 .error-message {
     background-color: #ffebee;
     color: #c62828;
@@ -216,7 +214,6 @@ form {
     border: 1px solid #ef9a9a;
 }
 
-/* Required field indicator */
 .form-group label::after {
     content: "*";
     color: #c62828;
