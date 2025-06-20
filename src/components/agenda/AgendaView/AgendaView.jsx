@@ -7,6 +7,12 @@ import './AgendaView.css';
 const AgendaView = ({ appointments = [], onSlotClick }) => {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedProfessional, setSelectedProfessional] = useState('all');
+    const [localAppointments, setLocalAppointments] = useState(appointments)
+
+
+    const handleAppointmentAdded = (newAppointment) => {
+        setLocalAppointments(prevAppointments => [...prevAppointments, newAppointment]);
+    };
 
     const timeSlots = Array.from({ length: 25 }, (_, i) => {
         const hour = Math.floor(i / 2) + 8;
@@ -53,6 +59,7 @@ const AgendaView = ({ appointments = [], onSlotClick }) => {
                 setDate={setCurrentDate}
                 selectedProfessional={selectedProfessional}
                 onProfessionalChange={setSelectedProfessional}
+                onAppointmentAdded={handleAppointmentAdded}
             />
 
             <div className="agenda-grid">

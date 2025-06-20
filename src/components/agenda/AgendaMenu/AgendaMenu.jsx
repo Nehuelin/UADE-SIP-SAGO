@@ -8,6 +8,7 @@ import {
     updateAppointment,
     deleteAppointment
 } from '../../../helpers/dbSimulator.js';
+import BackButton from "../../common/BackButton/BackButton.jsx";
 
 const AgendaMenu = () => {
     const navigate = useNavigate();
@@ -59,19 +60,13 @@ const AgendaMenu = () => {
         }
     };
 
-    const handleBackClick = () => {
-        navigate('/menu-principal');
-    };
-
     if (loading) return <p>Cargando agenda...</p>;
     if (error) return <p>{error}</p>;
 
     return (
         <div className="agenda-menu">
             <div className="agenda-header">
-                <button className="back-button" onClick={handleBackClick}>
-                    ← Volver al Menú
-                </button>
+                <BackButton />
                 <h1>Agenda</h1>
             </div>
             <AgendaView

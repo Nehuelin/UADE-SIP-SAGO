@@ -2,8 +2,9 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './AgendaControls.css';
 import AppointmentModal from '../AppointmentModal/AppointmentModal';
+import { addAppointment } from '../../../helpers/dbSimulator.js';
 
-const AgendaControls = ({ currentDate, setDate }) => {
+const AgendaControls = ({ currentDate, setDate, onAppointmentAdded }) => {
     const [selectedProfessional, setSelectedProfessional] = useState('all');
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -43,9 +44,32 @@ const AgendaControls = ({ currentDate, setDate }) => {
         setIsModalOpen(true);
     };
 
-    const handleAppointmentSubmit = (appointmentData) => {
-        console.log('New appointment:', appointmentData);
+    const handleAppointmentSubmit = async (appointmentData) => {
+        try {
+            console.log('Appointment data:', appointmentData);
+            const formattedAppointment = {
+                date: appointmentData.date,
+                hour: appointmentData.time,
+                patient: {
+                    name: appointmentData.patientName
+                },
+                professional: professionals.find(p => p.id === appointmentData.professional),
+                duration: parseInt(appointmentData.duration),
+                notes: appointmentData.notes
+            };
+
+            const newAppointment = await addAppointment(formattedAppointment);
+
+            console.log('New appointment:', newAppointment);
+            setIsModalOpen(false);
+            if (onAppointmentAdded) {
+                onAppointmentAdded(newAppointment);
+            }
+        } catch (error) {
+            console.error('Error creating appointment:', error);
+        }
     };
+
 
     const formatDateForInput = (date) => {
         const day = String(date.getDate()).padStart(2, '0');
@@ -134,7 +158,9 @@ const AgendaControls = ({ currentDate, setDate }) => {
 
 AgendaControls.propTypes = {
     currentDate: PropTypes.instanceOf(Date).isRequired,
-    setDate: PropTypes.func.isRequired
+    setDate: PropTypes.func.isRequired,
+    onAppointmentAdded: PropTypes.func
 };
+
 
 export default AgendaControls;
