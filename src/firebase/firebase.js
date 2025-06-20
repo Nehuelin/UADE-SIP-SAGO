@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, orderBy, startAt, endAt, getDocs, query } from "firebase/firestore";
+import { getDatabase } from "firebase/database"; // Para Realtime Database
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,13 +20,36 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
+//Si usas realtime Database:
+getDatabase(app);
+export async function getPatientByName(name) {
+  const patientRef = collection(db, 'pacientes');
+  const q = query(
+      patientRef,
+      orderBy('nombre'),
+      startAt(name),
+      endAt(name + '\uf8ff')
+  );
 
-import { collection, addDoc } from "firebase/firestore"; 
+  try{
+    const snapshot = await getDocs(q);
+    if (snapshot.empty) {
+      console.log('No matching documents.');
+      return [];
+    }
+    return snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
 
+  }catch (error) {
+    console.error('Error en la búsqueda', error);
+    return [];
+  }
+}
 
 
 
