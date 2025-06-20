@@ -453,6 +453,17 @@ export const searchBillingRecords = async (searchParams) => {
     });
 };
 
-export const fetchPeriodontalData = async () => {
 
+export const getCurrentUser = async () => {
+    return {
+        id: 'user123',
+        name: 'Dr. Juan Pérez',
+        email: 'juan.perez@example.com',
+        role: 'dentist',
+        speciality: 'Odontología General',
+        avatarUrl: null,
+        lastLogin: new Date().toISOString()
+    };
 };
+
+
