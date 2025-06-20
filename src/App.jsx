@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { UserContextProvider } from './context/UserContext.jsx';
 import './App.css';
 
 import SignUpForm from "./components/auth/SignUpForm/SignUpForm.jsx";
@@ -17,23 +18,25 @@ import BillingList from "./components/billing/BillingList/BillingList.jsx";
 
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/registracion" element={<SignUpForm />} />
-                <Route path="/login" element={<LoginForm />} />
-                <Route path="*" element={<NotFound />} />
-                <Route path="/menu-principal" element={<MainMenu />} />
-                <Route path="/agenda" element={<AgendaMenu />} />
-                <Route path="/facturacion" element={<BillingPatientForm />} />
-                <Route path="/facturacion/lista" element={<BillingList />} />
-                <Route path="/buscar-pacientes" element={<PatientFindForm />} />
-                <Route path="/buscar-pacientes/lista" element={<PatientList />} />
-                <Route path="/ficha-paciente/:id" element={<PatientRecord />} />
-                <Route path="/registrar-paciente" element={<PatientForm />} />
-                <Route path="/historial-clinico/:id" element={<ClinicalHistory />} />
-            </Routes>
-        </BrowserRouter>
+        <UserContextProvider>
+            <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<LandingPage />} />
+                        <Route path="/registracion" element={<SignUpForm />} />
+                        <Route path="/login" element={<LoginForm />} />
+                        <Route path="*" element={<NotFound />} />
+                        <Route path="/menu-principal" element={<MainMenu />} />
+                        <Route path="/agenda" element={<AgendaMenu />} />
+                        <Route path="/facturacion" element={<BillingPatientForm />} />
+                        <Route path="/facturacion/lista" element={<BillingList />} />
+                        <Route path="/buscar-pacientes" element={<PatientFindForm />} />
+                        <Route path="/buscar-pacientes/lista" element={<PatientList />} />
+                        <Route path="/ficha-paciente/:id" element={<PatientRecord />} />
+                        <Route path="/registrar-paciente" element={<PatientForm />} />
+                        <Route path="/historial-clinico/:id" element={<ClinicalHistory />} />
+                    </Routes>
+            </BrowserRouter>
+        </UserContextProvider>
     );
 }
 
