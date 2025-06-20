@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import './PatientRecord.css';
 import { useNavigate } from 'react-router-dom';
 import { getPatient } from '../../../helpers/dbSimulator';
+import BackButton from "../../common/BackButton/BackButton.jsx";
 
 const PatientRecord = () => {
     const navigate = useNavigate();
@@ -67,7 +68,7 @@ const PatientRecord = () => {
     return (
         <div className="clinical-history-container">
             <header className="header">
-                <button onClick={() => navigate(-1)} className="back-button">←</button>
+                <BackButton />
                 <h2>FICHA DE PACIENTE</h2>
             </header>
 

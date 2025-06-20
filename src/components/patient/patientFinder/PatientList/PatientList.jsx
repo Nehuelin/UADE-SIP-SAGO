@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Loading from '../../../common/Loading/Loading';
 import { searchPatients } from '../../../../helpers/dbSimulator.js';
 import './PatientList.css';
+import BackButton from "../../../common/BackButton/BackButton.jsx";
 
 const PatientList = () => {
     const navigate = useNavigate();
@@ -40,6 +41,7 @@ const PatientList = () => {
 
     return (
         <div className="patient-list-container">
+            <BackButton/>
             <h1>Lista de Pacientes</h1>
 
             {filteredPatients.length === 0 ? (

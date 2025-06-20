@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../../common/Loading/Loading';
 import "./PatientFindForm.css";
+import BackButton from "../../../common/BackButton/BackButton.jsx";
 
 const PatientFindForm = () => {
     const navigate = useNavigate();
@@ -58,6 +59,7 @@ const PatientFindForm = () => {
 
     return (
         <div className="patient-form-container">
+            <BackButton />
             <h1>Buscar Paciente</h1>
             <p>Los campos no son obligatorios. Úselos para filtrar la búsqueda.</p>
             {error && <div className="error-message">{error}</div>}

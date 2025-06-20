@@ -4,6 +4,7 @@ import { searchBillingRecords } from '../../../helpers/dbSimulator';
 import { capitalize } from '../../../helpers/stringFunctions.js';
 import './BillingList.css';
 import Loading from "../../common/Loading/Loading.jsx";
+import BackButton from "../../common/BackButton/BackButton.jsx";
 
 const BillingList = () => {
     const location = useLocation();
@@ -82,6 +83,7 @@ const BillingList = () => {
 
     return (
         <div className="billing-list-container">
+            <BackButton/>
             <h1>Lista de Facturas</h1>
 
             {bills.length === 0 ? (

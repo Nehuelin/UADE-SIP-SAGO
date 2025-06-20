@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./BillingPatientForm.css";
 import Loading from "../../common/Loading/Loading.jsx";
+import BackButton from "../../common/BackButton/BackButton.jsx";
 
 const BillingPatientForm = () => {
     const navigate = useNavigate();
@@ -57,6 +58,7 @@ const BillingPatientForm = () => {
 
     return (
         <div className="billing-form-container">
+            <BackButton />
             <h1>Buscar Facturación</h1>
             <p>Los campos no son obligatorios. Úselos para filtrar la búsqueda.</p>
             {error && <div className="error-message">{error}</div>}

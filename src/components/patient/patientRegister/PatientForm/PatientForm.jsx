@@ -4,6 +4,7 @@ import { simulateAuth } from '../../../../helpers/authSimulator.js';
 import Loading from '../../../common/Loading/Loading.jsx';
 import SuccessScreen from "../SuccessScreen/SuccessScreen.jsx";
 import './PatientForm.css';
+import BackButton from "../../../common/BackButton/BackButton.jsx";
 
 const PatientForm = () => {
     const [formData, setFormData] = useState({
@@ -83,6 +84,7 @@ const PatientForm = () => {
 
     return (
         <div className="patient-form-container">
+            <BackButton />
             <h1>Registrar Paciente</h1>
             {error && <div className="error-message">{error}</div>}
             <form onSubmit={handleSubmit}>
