@@ -33,7 +33,6 @@ export async function getPatientByName(name) {
       startAt(name),
       endAt(name + '\uf8ff')
   );
-
   try{
     const snapshot = await getDocs(q);
     if (snapshot.empty) {
@@ -51,5 +50,152 @@ export async function getPatientByName(name) {
   }
 }
 
+export async function getPatientByLastname(lastname) {
+  const patientRef = collection(db, 'pacientes');
+  const q = query(
+      patientRef,
+      orderBy('apellido'),
+      startAt(lastname),
+      endAt(lastname + '\uf8ff')
+  );
+  try{
+    const snapshot = await getDocs(q);
+    if (snapshot.empty) {
+      console.log('No matching documents.');
+      return [];
+    }
+    return snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
 
+  }catch (error) {
+    console.error('Error en la búsqueda', error);
+    return [];
+  }
+}
 
+export async function getPatientByDNI(dni) {
+  const patientRef = collection(db, 'pacientes');
+  const q = query(
+      patientRef,
+      orderBy('dni'),
+      startAt(dni),
+      endAt(dni + '\uf8ff')
+  );
+  try{
+    const snapshot = await getDocs(q);
+    if (snapshot.empty) {
+      console.log('No matching documents.');
+      return [];
+    }
+    return snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+
+  }catch (error) {
+    console.error('Error en la búsqueda', error);
+    return [];
+  }
+}
+
+export async function getPatientByNropaciente(nroPaciente) {
+  const patientRef = collection(db, 'pacientes');
+  const q = query(
+      patientRef,
+      orderBy('nroPaciente'),
+      startAt(nroPaciente),
+      endAt(nroPaciente + '\uf8ff')
+  );
+  try{
+    const snapshot = await getDocs(q);
+    if (snapshot.empty) {
+      console.log('No matching documents.');
+      return [];
+    }
+    return snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+
+  }catch (error) {
+    console.error('Error en la búsqueda', error);
+    return [];
+  }
+}
+
+export async function getPatientByNroTel(nroTel) {
+  const patientRef = collection(db, 'pacientes');
+  const q = query(
+      patientRef,
+      orderBy('telefono'),
+      startAt(nroTel),
+      endAt(nroTel + '\uf8ff')
+  );
+  try{
+    const snapshot = await getDocs(q);
+    if (snapshot.empty) {
+      console.log('No matching documents.');
+      return [];
+    }
+    return snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+
+  }catch (error) {
+    console.error('Error en la búsqueda', error);
+    return [];
+  }
+}
+
+export async function getPatientByObraSocial(ob) {
+  const patientRef = collection(db, 'pacientes');
+  const q = query(
+      patientRef,
+      orderBy('obraSocial'),
+      startAt(ob),
+      endAt(ob + '\uf8ff')
+  );
+  try{
+    const snapshot = await getDocs(q);
+    if (snapshot.empty) {
+      console.log('No matching documents.');
+      return [];
+    }
+    return snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+
+  }catch (error) {
+    console.error('Error en la búsqueda', error);
+    return [];
+  }
+}
+
+export async function getPatientByNroObrasocial(nroOb) {
+  const patientRef = collection(db, 'pacientes');
+  const q = query(
+      patientRef,
+      orderBy('nroObraSocial'),
+      startAt(nroOb),
+      endAt(nroOb + '\uf8ff')
+  );
+  try{
+    const snapshot = await getDocs(q);
+    if (snapshot.empty) {
+      console.log('No matching documents.');
+      return [];
+    }
+    return snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+
+  }catch (error) {
+    console.error('Error en la búsqueda', error);
+    return [];
+  }
+}
