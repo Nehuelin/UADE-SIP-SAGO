@@ -85,6 +85,10 @@ const AgendaControls = ({ currentDate, setDate, onAppointmentAdded }) => {
         return `${day}/${month}/${year}`;
     };
 
+    const handleAppointmentReminder = () => {
+        console.log("handleAppointmentReminder is in use");
+    }
+
     return (
         <>
             <div className="agenda-controls">
@@ -142,6 +146,13 @@ const AgendaControls = ({ currentDate, setDate, onAppointmentAdded }) => {
                         onClick={handleNewAppointment}
                     >
                         Nuevo Turno
+                    </button>
+
+                    <button
+                        className="remember-appointment-btn"
+                        onClick={handleAppointmentReminder}
+                    >
+                        Recordar Turnos
                     </button>
                 </div>
             </div>
