@@ -6,7 +6,8 @@
     width: 100%;
     min-height: 100vh;
     background-color: #979090;
-    translate: -16px 0 0;
+    left: 1px;
+    position: relative;
 }
 
 .agenda-grid {
@@ -22,7 +23,7 @@
 
 .appointments-column {
     flex: 1;
-    max-width: calc(100% - 100px);
+    max-width: calc(100% - 80px);
 }
 
 .time-slot, .appointment-slot {

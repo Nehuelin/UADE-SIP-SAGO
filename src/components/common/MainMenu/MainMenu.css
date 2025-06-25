@@ -2,10 +2,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
     min-height: 100vh;
     background-color: #f8f9fa;
     width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
 }
 
 .main-menu-title {
@@ -17,11 +19,12 @@
 }
 
 .menu-grid {
+    margin-top: 4rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1800px;
     padding: 0 1rem;
 }
 
@@ -37,6 +40,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     min-height: 180px;
+    height: 600px;
     position: relative;
     overflow: hidden;
     opacity: 0;
@@ -113,7 +117,6 @@
     }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .menu-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -147,4 +150,11 @@
     .menu-button {
         min-height: 120px;
     }
+}
+
+.user-widget-container {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
 }

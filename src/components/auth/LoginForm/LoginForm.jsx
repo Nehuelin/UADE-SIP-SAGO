@@ -74,10 +74,6 @@ const LoginForm = () => {
                 </p>
                 <Link to="/" className="back-link">Volver al Inicio</Link>
             </form>
-            <p className="men_in_black">DEV ONLY: Actualmente esta en funcionamiento una simulacion de Fetch de datos.</p>
-            <p className="men_in_black">Al apretar Login, el loader dura entre 3 y 5 segundos</p>
-            <p className="men_in_black">Despues de eso, hay chances del 1 en 5 de recibir un error de autenticacion</p>
-            <p className="men_in_black">Si no ocurre, se continua la navegacion al menu principal</p>
         </div>
     );
 };

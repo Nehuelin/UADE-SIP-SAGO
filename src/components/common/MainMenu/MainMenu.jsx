@@ -88,6 +88,8 @@ const MainMenu = () => {
         <div className="main-menu-container">
             <div className="main-menu-header">
                 <h1 className="main-menu-title">Menu Principal</h1>
+            </div>
+            <div className="user-widget-container">
                 <UserWidget />
             </div>
             <div className="menu-grid">
